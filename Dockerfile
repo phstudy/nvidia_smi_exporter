@@ -1,6 +1,6 @@
-FROM nvidia/cuda
+FROM nvidia/cuda:9.0-base
 
-MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
+MAINTAINER Study Hsueh <ph.study@gmail.com>
 
 RUN apt-get update && \
     apt-get -y install golang --no-install-recommends && \
@@ -10,8 +10,8 @@ WORKDIR /go
 
 COPY . .
 
-RUN go build -v -o bin/app src/app.go
+RUN go build -v -o bin/nvidia_smi_exporter src/nvidia_smi_exporter.go
 
 EXPOSE 9202
 
-CMD ["./bin/app"]
+CMD ["./bin/nvidia_smi_exporter"]
