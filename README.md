@@ -16,15 +16,15 @@ Building:
     cd ${GOPATH-$HOME/go}/src/github.com/phstudy/nvidia_smi_exporter
     go build -v -o bin/nvidia_smi_exporter src/nvidia_smi_exporter.go
 
-## Running in default port
+Running with default port:
 
     bin/nvidia_smi_exporter
 
-## Running in specified port
+Running with specified port:
 
     LISTEN_ADDRESS=9201 bin/nvidia_smi_exporter
 
-## Running in test mode
+Running in test mode:
 
     TEST_MODE=1 bin/nvidia_smi_exporter
 
@@ -36,8 +36,8 @@ The `nvidia_smi_exporter` depends on [NVIDIA/nvidia-docker](https://github.com/N
           --runtime=nvidia \
           --name=nvidia_smi_exporter \
           -p 9202:9202 \
-          phstudy/nvidia_smi_exporter
+          study/nvidia_smi_exporter
 
-You can check the output of nvidia_smi_exporter with:
+You can check the output of `nvidia_smi_exporter` with:
 
     $ docker logs -f nvidia_smi_exporter
